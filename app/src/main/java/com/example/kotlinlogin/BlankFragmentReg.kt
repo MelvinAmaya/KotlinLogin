@@ -47,21 +47,19 @@ class BlankFragmentReg : Fragment() {
                     }
                     else
                     {
-                        auth.createUserWithEmailAndPassword(email2, pass2)
-                            .addOnCompleteListener { task ->
+                        auth.createUserWithEmailAndPassword(email2, pass2).addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(ContentValues.TAG, "createUserWithEmail:success")
                                     val user = auth.currentUser
-                                    Toast.makeText(context,"se guardo el registro...", Toast.LENGTH_LONG).show()
+                                    Toast.makeText(context,"Se guardo el registro...", Toast.LENGTH_LONG).show()
                                     requireView().txtUsuario2.text=null
                                     requireView().txtpass2.text=null
                                     requireView().txtconpass2.text=null
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
-                                    Toast.makeText(context, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "No se pudo guardar el registro",Toast.LENGTH_SHORT).show()
                                 }
                             }
                         //activityContenedora2!!.DatosBase(email2,pass2)
